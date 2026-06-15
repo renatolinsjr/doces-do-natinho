@@ -14,6 +14,8 @@ export const INITIAL_CONFIG: AppConfig = {
   facebookUrl: 'https://facebook.com/docesdonatinho',
   ifoodUrl: 'https://www.ifood.com.br',
   address: envAddress,
-  addressMapUrl: 'https://maps.google.com',
+  addressMapUrl: envAddress
+    ? `https://www.google.com/maps/search/${encodeURIComponent(envAddress)}`
+    : 'https://maps.google.com',
   openingHours: 'Segunda a Sexta: 09h às 21h30',
 };

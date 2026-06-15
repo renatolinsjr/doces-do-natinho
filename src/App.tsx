@@ -13,7 +13,7 @@ import {
   Sparkles,
   Heart,
 } from 'lucide-react';
-import { IoLogoWhatsapp } from 'react-icons/io';
+import { IoLogoWhatsapp, IoMdArrowRoundBack } from 'react-icons/io';
 
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -56,6 +56,8 @@ export default function App() {
         return <FaFacebookSquare size={size} color="#1877F2" />;
       case 'MapPin':
         return <SiGooglemaps size={size} color="#4285F4" />;
+      case 'BackRoute':
+        return <IoMdArrowRoundBack size={size} color="#4285F4" />;
       default:
         return null;
     }
@@ -190,7 +192,7 @@ export default function App() {
                   className="flex items-center justify-center p-2 rounded-full border-2 border-brand-brown bg-brand-cream hover:bg-brand-orange text-brand-brown transition-all hover:scale-105 active:scale-95 btn-shadow-sm cursor-pointer"
                   title="Voltar"
                 >
-                  {renderIcon('MapPin', 18)}
+                  {renderIcon('BackRoute', 18)}
                 </button>
                 <div className="text-center flex-1 pr-6">
                   <h2 className="font-sans font-extrabold text-xl text-brand-brown tracking-tight">
