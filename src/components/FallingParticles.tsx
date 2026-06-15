@@ -8,6 +8,7 @@ interface Particle {
   rot: string;
   duration: string;
   fontSize: string;
+  createdAt: number;
 }
 
 const EMOJIS = ['🍩', '🍫', '🧁', '🍬', '🍭', '🍪', '🍓'];
@@ -27,7 +28,7 @@ export default function FallingParticles() {
       const duration = `${8 + Math.random() * 8}s`;
       const fontSize = `${20 + Math.random() * 16}px`;
 
-      return { id, emoji, left, sway, rot, duration, fontSize };
+      return { id, emoji, left, sway, rot, duration, fontSize, createdAt: Date.now() };
     };
 
     // Pre-populate some particles
@@ -37,20 +38,12 @@ export default function FallingParticles() {
     const interval = setInterval(() => {
       const newParticle = createParticle();
       setParticles((prev) => {
-        // Keep up to 25 particles in memory to prevent memory bleed
-        const filtered = prev.filter((p) => {
-          // Parse duration string to number of milliseconds, add buffer of 2s
-          const d = parseFloat(p.duration) * 1000;
-          return true; // we will clean them up by matching timestamps or using a simple timer
-        });
-        return [...filtered, newParticle];
+        const now = Date.now();
+        return [
+          ...prev.filter((p) => now - p.createdAt < parseFloat(p.duration) * 1000),
+          newParticle,
+        ];
       });
-
-      // Automatically remove old particle after its animation
-      const durationMs = parseFloat(newParticle.duration) * 1000;
-      setTimeout(() => {
-        setParticles((prev) => prev.filter((p) => p.id !== newParticle.id));
-      }, durationMs);
     }, 1800);
 
     return () => {

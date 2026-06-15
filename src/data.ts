@@ -1,4 +1,4 @@
-import { AppConfig } from './types';
+import { AppConfig, LinkItem } from './types';
 
 export const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:3000';
 
@@ -19,3 +19,45 @@ export const INITIAL_CONFIG: AppConfig = {
     : 'https://maps.google.com',
   openingHours: 'Segunda a Sexta: 09h às 21h30',
 };
+
+export const LINKS: LinkItem[] = [
+  {
+    id: 'insta',
+    label: 'Instagram',
+    icon: 'Instagram',
+    type: 'url',
+    url: INITIAL_CONFIG.instagramUrl,
+  },
+  {
+    id: 'whats',
+    label: 'WhatsApp',
+    icon: 'WhatsApp',
+    type: 'whatsapp',
+  },
+  {
+    id: 'encomendas',
+    label: 'Encomendas',
+    icon: 'Store',
+    type: 'encomendas',
+  },
+  {
+    id: 'ifood',
+    label: 'iFood',
+    icon: 'ShoppingBag',
+    type: 'url',
+    url: INITIAL_CONFIG.ifoodUrl,
+  },
+  {
+    id: 'fb',
+    label: 'Facebook',
+    icon: 'ThumbsUp',
+    type: 'url',
+    url: INITIAL_CONFIG.facebookUrl,
+  },
+  {
+    id: 'loc',
+    label: 'Nossa Localização',
+    icon: 'MapPin',
+    type: 'location',
+  },
+];

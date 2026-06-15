@@ -10,3 +10,22 @@ export interface AppConfig {
   addressMapUrl: string;
   openingHours: string;
 }
+
+export type LinkType = 'url' | 'whatsapp' | 'encomendas' | 'location';
+
+export type IconName =
+  | 'Instagram'
+  | 'WhatsApp'
+  | 'Store'
+  | 'ShoppingBag'
+  | 'ThumbsUp'
+  | 'MapPin'
+  | 'BackRoute';
+
+export interface LinkItem {
+  id: string;
+  label: string;
+  icon: IconName;
+  type: LinkType;
+  url?: string;
+}
