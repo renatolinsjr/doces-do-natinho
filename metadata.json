@@ -1,0 +1,6 @@
+{
+  "name": "Doces do Natinho",
+  "description": "Linktree e Catálogo de Encomendas interativo para Doces do Natinho com integração ao WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

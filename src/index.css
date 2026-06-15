@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-brand-cream: #F4F9FF;
+  --color-brand-brown: #4A2112;
+  --color-brand-blue: #E0F2FE;
+  --color-brand-blue-hover: #bde0fe;
+  --color-brand-pink: #ffc8dd;
+  --color-brand-pink-hover: #ffd8e6;
+  --color-brand-orange: #ffdeac;
+}
+
+@layer utilities {
+  .btn-shadow {
+    box-shadow: 4px 4px 0px 0px #4A2112;
+  }
+  .btn-shadow-pink {
+    box-shadow: 4px 4px 0px 0px #7c5264;
+  }
+  .btn-shadow-sm {
+    box-shadow: 2px 2px 0px 0px #4A2112;
+  }
+}
+
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-5px) scale(1.02); }
+}
+
+.profile-img-container {
+  animation: subtle-bounce 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar to keep it looking cute */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F9FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #4A2112;
+  border-radius: 9999px;
+  border: 2px solid #F4F9FF;
+}
+
