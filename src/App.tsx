@@ -11,20 +11,20 @@ import {
   Clock,
   Navigation,
   Sparkles,
-  Heart
+  Heart,
 } from 'lucide-react';
-import { IoLogoWhatsapp } from "react-icons/io";
+import { IoLogoWhatsapp } from 'react-icons/io';
 
 import { motion, AnimatePresence } from 'motion/react';
 
 import { INITIAL_CONFIG, BASE_URL } from './data';
 import FallingParticles from './components/FallingParticles';
-import { IoLogoInstagram } from 'react-icons/io';
+
 import { FaSquareInstagram } from 'react-icons/fa6';
 import { SiGooglemaps, SiIfood } from 'react-icons/si';
 import { FaFacebookSquare } from 'react-icons/fa';
-import { LuDonut } from 'react-icons/lu';
-import { GiCupcake, GiDonut } from 'react-icons/gi';
+
+import { GiCupcake } from 'react-icons/gi';
 
 export default function App() {
   const [activePanel, setActivePanel] = useState<'links' | 'localizacao'>('links');
@@ -45,9 +45,9 @@ export default function App() {
   const renderIcon = (name: string, size = 26) => {
     switch (name) {
       case 'Instagram':
-        return <FaSquareInstagram  size={size} color="#C13584" />;
+        return <FaSquareInstagram size={size} color="#C13584" />;
       case 'WhatsApp':
-        return <IoLogoWhatsapp size={size} color='green' />;
+        return <IoLogoWhatsapp size={size} color="green" />;
       case 'Store':
         return <GiCupcake size={size} color="#8B4513" />;
       case 'ShoppingBag':
@@ -63,7 +63,6 @@ export default function App() {
 
   return (
     <div className="bg-brand-cream text-brand-brown min-h-screen font-sans flex flex-col items-center py-8 px-4 relative z-0 selection:bg-brand-pink select-none overflow-x-hidden">
-      
       <FallingParticles />
 
       <div className="fixed inset-0 z-[-2] pointer-events-none opacity-[0.06] overflow-hidden flex flex-wrap justify-between items-center p-12 gap-24">
@@ -77,7 +76,6 @@ export default function App() {
       </div>
 
       <div className="w-full max-w-[480px] flex flex-col items-center gap-6 relative z-10 my-auto">
-        
         <AnimatePresence mode="wait">
           {activePanel === 'links' && (
             <motion.div
@@ -107,7 +105,9 @@ export default function App() {
 
               <div className="flex items-center justify-center gap-3 w-full max-w-[260px] py-1 mt-1">
                 <div className="h-0.5 w-full bg-brand-brown/25 rounded-full"></div>
-                <span className="text-lg drop-shadow-sm select-none flex flex-row items-center whitespace-nowrap">🍩🍫🧁</span>
+                <span className="text-lg drop-shadow-sm select-none flex flex-row items-center whitespace-nowrap">
+                  🍩🍫🧁
+                </span>
                 <div className="h-0.5 w-full bg-brand-brown/25 rounded-full"></div>
               </div>
             </motion.div>
@@ -115,7 +115,6 @@ export default function App() {
         </AnimatePresence>
 
         <AnimatePresence mode="wait">
-          
           {activePanel === 'links' && (
             <motion.div
               key="main-links"
@@ -125,12 +124,42 @@ export default function App() {
               className="w-full flex flex-col gap-4 mt-2"
             >
               {[
-                { id: 'insta', label: 'Instagram', icon: 'Instagram', action: () => window.open(INITIAL_CONFIG.instagramUrl, '_blank') },
-                { id: 'whats', label: 'WhatsApp', icon: 'WhatsApp', action: () => window.open(getWhatsAppContactUrl(), '_blank') },
-                { id: 'encomendas', label: 'Encomendas', icon: 'Store', action: () => window.open(`${BASE_URL}/loja`, '_blank') },
-                { id: 'ifood', label: 'iFood', icon: 'ShoppingBag', action: () => window.open(INITIAL_CONFIG.ifoodUrl, '_blank') },
-                { id: 'fb', label: 'Facebook', icon: 'ThumbsUp', action: () => window.open(INITIAL_CONFIG.facebookUrl, '_blank') },
-                { id: 'loc', label: 'Nossa Localização', icon: 'MapPin', action: () => setActivePanel('localizacao') },
+                {
+                  id: 'insta',
+                  label: 'Instagram',
+                  icon: 'Instagram',
+                  action: () => window.open(INITIAL_CONFIG.instagramUrl, '_blank'),
+                },
+                {
+                  id: 'whats',
+                  label: 'WhatsApp',
+                  icon: 'WhatsApp',
+                  action: () => window.open(getWhatsAppContactUrl(), '_blank'),
+                },
+                {
+                  id: 'encomendas',
+                  label: 'Encomendas',
+                  icon: 'Store',
+                  action: () => window.open(`${BASE_URL}/loja`, '_blank'),
+                },
+                {
+                  id: 'ifood',
+                  label: 'iFood',
+                  icon: 'ShoppingBag',
+                  action: () => window.open(INITIAL_CONFIG.ifoodUrl, '_blank'),
+                },
+                {
+                  id: 'fb',
+                  label: 'Facebook',
+                  icon: 'ThumbsUp',
+                  action: () => window.open(INITIAL_CONFIG.facebookUrl, '_blank'),
+                },
+                {
+                  id: 'loc',
+                  label: 'Nossa Localização',
+                  icon: 'MapPin',
+                  action: () => setActivePanel('localizacao'),
+                },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -141,9 +170,7 @@ export default function App() {
                   <span className="absolute left-6 text-brand-brown flex items-center justify-center">
                     {renderIcon(item.icon)}
                   </span>
-                  <span className="w-full text-center pr-2">
-                    {item.label}
-                  </span>
+                  <span className="w-full text-center pr-2">{item.label}</span>
                 </button>
               ))}
             </motion.div>
@@ -169,14 +196,14 @@ export default function App() {
                   <h2 className="font-sans font-extrabold text-xl text-brand-brown tracking-tight">
                     Nossa Localização
                   </h2>
-                  <p className="text-xs text-brand-brown/85 font-semibold mt-0.5">Venha nos visitar ✨</p>
+                  <p className="text-xs text-brand-brown/85 font-semibold mt-0.5">
+                    Venha nos visitar ✨
+                  </p>
                 </div>
               </div>
 
               <div className="p-5 flex flex-col gap-4 bg-white/60">
-                
                 <div className="h-[180px] w-full rounded-xl border-2 border-brand-brown bg-brand-blue/30 relative overflow-hidden flex flex-col justify-end p-3 shadow-inner">
-                  
                   <div className="absolute inset-0 z-0 opacity-40">
                     <div className="absolute h-4 w-full bg-brand-brown/10 top-12 left-0 transform -rotate-12"></div>
                     <div className="absolute h-4 w-full bg-brand-brown/10 top-32 left-0 transform rotate-6"></div>
@@ -194,20 +221,25 @@ export default function App() {
                       <Store size={14} className="text-brand-brown" />
                     </div>
                     <div className="text-left">
-                      <p className="text-[10px] font-black uppercase text-brand-brown/60 tracking-wider">Ateliê Físico</p>
-                      <p className="text-xs font-extrabold text-brand-brown">Doces do Natinho Doceria</p>
+                      <p className="text-[10px] font-black uppercase text-brand-brown/60 tracking-wider">
+                        Ateliê Físico
+                      </p>
+                      <p className="text-xs font-extrabold text-brand-brown">
+                        Doces do Natinho Doceria
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-3.5 mt-1">
-                  
                   <div className="flex gap-2.5 items-start">
                     <div className="bg-brand-orange/40 border border-brand-brown/30 p-2 rounded-xl shrink-0 mt-0.5">
                       <MapPin size={16} className="text-brand-brown" />
                     </div>
                     <div className="flex-1 text-left">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-brand-brown/60">Endereço</h4>
+                      <h4 className="text-xs font-black uppercase tracking-wider text-brand-brown/60">
+                        Endereço
+                      </h4>
                       <p className="text-sm font-bold text-brand-brown leading-snug mt-0.5">
                         {INITIAL_CONFIG.address}
                       </p>
@@ -219,7 +251,9 @@ export default function App() {
                       <Clock size={16} className="text-brand-brown" />
                     </div>
                     <div className="flex-1 text-left">
-                      <h4 className="text-xs font-black uppercase tracking-wider text-brand-brown/60">Horário de Funcionamento</h4>
+                      <h4 className="text-xs font-black uppercase tracking-wider text-brand-brown/60">
+                        Horário de Funcionamento
+                      </h4>
                       <p className="text-sm font-bold text-brand-brown mt-0.5">
                         {INITIAL_CONFIG.openingHours}
                       </p>
@@ -257,7 +291,6 @@ export default function App() {
               </div>
             </motion.div>
           )}
-
         </AnimatePresence>
 
         <footer className="w-full mt-2 flex flex-col items-center justify-center gap-3 bg-transparent">

@@ -64,17 +64,19 @@ export default function FallingParticles() {
         <span
           key={p.id}
           className="absolute text-2xl filter saturate-75 brightness-105 select-none animate-fall"
-          style={{
-            left: p.left,
-            top: '-50px',
-            fontSize: p.fontSize,
-            animationName: 'fallSway',
-            animationDuration: p.duration,
-            animationTimingFunction: 'linear',
-            animationFillMode: 'forwards',
-            '--sway-amount': p.sway,
-            '--rotate-amount': p.rot,
-          } as CSSProperties}
+          style={
+            {
+              left: p.left,
+              top: '-50px',
+              fontSize: p.fontSize,
+              animationName: 'fallSway',
+              animationDuration: p.duration,
+              animationTimingFunction: 'linear',
+              animationFillMode: 'forwards',
+              '--sway-amount': p.sway,
+              '--rotate-amount': p.rot,
+            } as CSSProperties
+          }
         >
           {p.emoji}
         </span>
