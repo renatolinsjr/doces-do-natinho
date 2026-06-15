@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doces-do-natinho.pages.dev/sitemap.xml
